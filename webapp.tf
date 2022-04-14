@@ -4,8 +4,8 @@ resource "azurerm_app_service_plan" "svcplan" {
     resource_group_name = var.resource_group_name
 
     sku {
-        tier = "Free"
-        size = "F1"
+        tier = "Standard"
+        size = "Small"
     }
     depends_on = [
       azurerm_resource_group.rg
