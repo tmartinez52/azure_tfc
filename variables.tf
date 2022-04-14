@@ -10,3 +10,11 @@ variable "sa_blob" {
 }
 variable "sa_share" {
 }
+variable "vnet" {
+}
+variable "address_space" {
+}
+variable "subnet" {
+}
+variable "prefix" {
+}
