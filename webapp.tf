@@ -19,7 +19,7 @@ resource "azurerm_app_service" "appsvc" {
     app_service_plan_id = azurerm_app_service_plan.svcplan.id
 
     site_config {
-      dotnet_framework_version = "v4.8"
+      dotnet_framework_version = "v4.0"
       scm_type = "LocalGit"
     }
 
