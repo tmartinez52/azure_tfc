@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "example" {
     location = var.location 
     resource_group_name = var.resource_group_name
     network_interface_ids =  [azurerm_network_interface.example.id]
-    vm_size = "Standard_DC2s_v2"
+    vm_size = "Standard_E2bds_v5"
     delete_os_disk_on_termination = true
     delete_data_disks_on_termination = true
     storage_image_reference {
