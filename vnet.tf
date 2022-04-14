@@ -3,6 +3,10 @@ resource "azurerm_virtual_network" "vnet" {
     address_space = [var.address_space]
     location = var.location
     resource_group_name = var.resource_group_name
+
+    depends_on = [
+      azurerm_resource_group.rg
+    ]
 }
 resource "azurerm_subnet" "subnet" {
     name = var.subnet
@@ -14,4 +18,7 @@ resource "azurerm_network_watcher" "vnet_watcher" {
   name                = var.watcher
   location            = var.location
   resource_group_name = var.resource_group_name
+  depends_on = [
+    azurerm_resource_group.rg
+  ]
 }

@@ -8,6 +8,9 @@ resource "azurerm_storage_account" "sa" {
   tags = {
     Environment = "Azure Testing"
   }
+  depends_on = [
+    azurerm_resource_group.rg
+  ]
 }
 
 resource "azurerm_storage_container" "sa_container" {
