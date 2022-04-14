@@ -4,7 +4,7 @@ resource "azurerm_network_security_group" "nsg" {
     resource_group_name =  var.resource_group_name
 }
 
-resource "azurerm_network_security_rule" "" {
+resource "azurerm_network_security_rule" "rule_one" {
     name = "web80"
     priority = 1001
     direction = "Inbound"
