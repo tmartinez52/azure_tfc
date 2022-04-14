@@ -18,3 +18,5 @@ variable "subnet" {
 }
 variable "prefix" {
 }
+variable "watcher" {
+}
