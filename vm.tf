@@ -9,7 +9,7 @@ resource "azurerm_virtual_machine" "example" {
     storage_image_reference {
         publisher = "Canonical"
         offer = "UbuntuServer"
-        sku = "16.04-lts-gen2"
+        sku = "18.04-lts-gen2"
         version = "latest"
     }
     storage_os_disk {
