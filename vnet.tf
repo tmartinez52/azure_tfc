@@ -26,6 +26,9 @@ data "azurerm_subnet" "tfsubnet" {
     name = var.subnet
     virtual_network_name =  var.vnet
     resource_group_name = var.resource_group_name
+    depends_on = [
+      azurerm_resource_group.rg
+    ]
 }
 resource "azurerm_public_ip" "example" {
     name = "pubip1"
