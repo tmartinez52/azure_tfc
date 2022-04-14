@@ -22,3 +22,9 @@ variable "watcher" {
 }
 variable "security_group" {
 }
+variable "vmname" {
+}
+variable "username" {
+}
+variable "password" {
+}
