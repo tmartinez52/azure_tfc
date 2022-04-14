@@ -14,6 +14,7 @@ resource "azurerm_subnet" "subnet" {
     virtual_network_name = azurerm_virtual_network.vnet.name
     address_prefixes = [var.prefix]
 }
+
 resource "azurerm_network_watcher" "vnet_watcher" {
   name                = var.watcher
   location            = var.location
@@ -22,20 +23,15 @@ resource "azurerm_network_watcher" "vnet_watcher" {
     azurerm_resource_group.rg
   ]
 }
-data "azurerm_subnet" "tfsubnet" {
-    name = var.subnet
-    virtual_network_name =  var.vnet
-    resource_group_name = var.resource_group_name
-    depends_on = [
-      azurerm_resource_group.rg
-    ]
-}
 resource "azurerm_public_ip" "example" {
     name = "pubip1"
     location = var.location
     resource_group_name = var.resource_group_name
     allocation_method = "Dynamic"
     sku = "Basic"
+    depends_on = [
+      azurerm_resource_group.rg
+    ]
 }
 resource "azurerm_network_interface" "example" {
     name = "forge-nic"
@@ -43,7 +39,7 @@ resource "azurerm_network_interface" "example" {
     resource_group_name = var.resource_group_name
     ip_configuration {
       name = "ipconfig1"
-      subnet_id = data.azurerm_subnet.tfsubnet.id
+      subnet_id = azurerm_subnet.subnet.id
       private_ip_address_allocation = "Dynamic"  
       public_ip_address_id = azurerm_public_ip.example.id
     }
