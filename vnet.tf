@@ -40,7 +40,7 @@ resource "azurerm_network_interface" "example" {
     resource_group_name = var.resource_group_name
     ip_configuration {
       name = "ipconfig1"
-      subnet_id = azurerm_subnet.tfsubnet.id
+      subnet_id = data.azurerm_subnet.tfsubnet.id
       private_ip_address_allocation = "Dynamic"  
       public_ip_address_id = azurerm_public_ip.example.id
     }
