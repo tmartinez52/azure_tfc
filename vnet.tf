@@ -22,14 +22,7 @@ resource "azurerm_network_watcher" "vnet_watcher" {
     azurerm_resource_group.rg
   ]
 }
-data "azurerm_subnet" "tfsubnet" {
-    name = var.subnet
-    virtual_network_name =  var.vnet
-    resource_group_name = var.resource_group_name
-    depends_on = [
-      azurerm_resource_group.rg
-    ]
-}
+
 resource "azurerm_public_ip" "example" {
     name = "pubip1"
     location = var.location
