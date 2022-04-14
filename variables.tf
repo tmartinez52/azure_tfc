@@ -20,3 +20,5 @@ variable "prefix" {
 }
 variable "watcher" {
 }
+variable "security_group" {
+}
