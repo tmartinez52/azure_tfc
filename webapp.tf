@@ -7,6 +7,9 @@ resource "azurerm_app_service_plan" "svcplan" {
         tier = "Standard"
         size = "S1"
     }
+    depends_on = [
+      azurerm_resource_group.rg
+    ]
 }
 
 resource "azurerm_app_service" "appsvc" {
@@ -19,4 +22,5 @@ resource "azurerm_app_service" "appsvc" {
       dotnet_framework_version = "v4.0"
       scm_type = "LocalGit"
     }
+
 }
