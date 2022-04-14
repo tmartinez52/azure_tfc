@@ -10,3 +10,8 @@ resource "azurerm_subnet" "subnet" {
     virtual_network_name = azurerm_virtual_network.vnet.name
     address_prefixes = [var.prefix]
 }
+resource "azurerm_network_watcher" "vnet_watcher" {
+  name                = var.watcher
+  location            = var.location
+  resource_group_name = var.resource_group_name
+}
