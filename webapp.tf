@@ -5,7 +5,7 @@ resource "azurerm_app_service_plan" "svcplan" {
 
     sku {
         tier = "Standard"
-        size = "Small"
+        size = "S2"
     }
     depends_on = [
       azurerm_resource_group.rg
