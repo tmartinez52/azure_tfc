@@ -20,6 +20,9 @@ resource "azurerm_mysql_server" "db" {
     administrator_login_password = var.password
     version = "5.7"
     ssl_enforcement = "Enabled"
+    depends_on = [
+      azurerm_resource_group.rg
+    ]
 }
 
 resource "azurerm_mysql_database" "example" {
